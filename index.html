@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>生日惊喜小页面</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero-card">
+      <p class="hero-tag">Happy Birthday</p>
+      <h1>全国合格部下考试（黑龙江考区）</h1>
+      <p class="hero-desc">
+        1，本试卷分为两部分，第一部分（选择题），第二部分（非选择题），考试时间15分钟。
+        2.本试卷为积累性考试，对于日常的细节把控也是对于所属领导的基本服务的一次考核，请考生认真对待。
+        3.本次考试总分为100分，不足60分不合格（将收回所有福利，并有惩处）80分以上为合格（无惩罚），90分以上为优秀（将启动惊喜奖项）。
+      </p>
+      <div class="step-indicator">
+        <span class="step-chip is-active" data-step-chip="profile">1. 信息</span>
+        <span class="step-chip" data-step-chip="quiz">2. 答题</span>
+        <span class="step-chip" data-step-chip="lottery">3. 抽奖</span>
+      </div>
+    </header>
+
+    <main class="page-stack">
+      <section class="panel is-visible" id="profile-panel">
+        <div class="panel-head">
+          <h2>输入基本信息</h2>
+          <p>这一步是给寿星专属定制内容用的。</p>
+        </div>
+
+        <form id="profile-form" class="form-card">
+          <label class="field">
+            <span>名字</span>
+            <input id="friend-name" name="name" type="text" maxlength="20" placeholder="请输入名字" required>
+          </label>
+
+          <button class="primary-btn" type="submit">开始答题</button>
+        </form>
+
+        <div class="gallery-card">
+          <div class="gallery-head">
+            <p class="preview-title">专属相册</p>
+            <span id="carousel-counter">1 / 12</span>
+          </div>
+          <div class="carousel" id="photo-carousel">
+            <div class="carousel-track" id="carousel-track"></div>
+          </div>
+          <div class="carousel-dots" id="carousel-dots"></div>
+        </div>
+      </section>
+
+      <section class="panel" id="quiz-panel">
+        <div class="panel-head">
+          <h2>生日问答</h2>
+          <p id="quiz-intro">请认真填写，每一题都要输入内容。</p>
+        </div>
+
+        <div class="progress-row">
+          <span>完成进度</span>
+          <span id="progress-text">0 / 10</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <form id="quiz-form" class="form-card"></form>
+
+        <button class="primary-btn" id="submit-answers-btn" type="button">提交答案并抽奖</button>
+      </section>
+
+      <section class="panel" id="lottery-panel">
+        <div class="panel-head">
+          <h2>九宫格抽奖</h2>
+          <p id="lottery-summary">答题完成，来试试你的生日好运气。</p>
+        </div>
+
+        <div class="result-card" id="birthday-card">
+          <p class="result-title">今天的主角</p>
+          <h3 id="display-name">寿星</h3>
+          <p id="display-birthday">专属惊喜已准备好</p>
+        </div>
+
+        <div class="lottery-meta">
+          <div class="meta-card">
+            <span>剩余次数</span>
+            <strong id="chance-count">3 次</strong>
+          </div>
+          <div class="meta-card">
+            <span>已抽中</span>
+            <strong id="last-prize">还没开始</strong>
+          </div>
+        </div>
+
+        <div class="prize-preview">
+          <p class="preview-title">抽奖项预览</p>
+          <div class="preview-list" id="prize-preview-list"></div>
+        </div>
+
+        <div class="lottery-board" id="lottery-board">
+          <div class="lottery-cell" data-cell-index="1"></div>
+          <div class="lottery-cell" data-cell-index="2"></div>
+          <div class="lottery-cell" data-cell-index="3"></div>
+          <div class="lottery-cell" data-cell-index="8"></div>
+          <button class="lottery-start" id="lottery-start-btn" type="button">开始抽奖</button>
+          <div class="lottery-cell" data-cell-index="4"></div>
+          <div class="lottery-cell" data-cell-index="7"></div>
+          <div class="lottery-cell" data-cell-index="6"></div>
+          <div class="lottery-cell" data-cell-index="5"></div>
+        </div>
+
+        <button class="secondary-btn is-hidden" id="unlock-hidden-btn" type="button">
+          联系马英飞解锁隐藏抽奖次数
+        </button>
+
+        <div class="history-card">
+          <p class="result-title">抽奖记录</p>
+          <ul id="history-list" class="history-list">
+            <li>还没有抽奖记录</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="score-overlay" id="score-overlay">
+    <div class="score-card">
+      <p class="score-tag">考试结束</p>
+      <div class="score-number">100</div>
+      <p class="score-text">满分通过，隐藏惊喜即将开启</p>
+      <div class="score-burst">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
